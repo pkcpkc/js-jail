@@ -10,9 +10,6 @@
       "types": "./dist/index.d.ts",
       "default": "./dist/index.js"
     },
-    "publishConfig": {
-      "access": "public"
-    },
     "./worker": {
       "types": "./dist/worker.d.ts",
       "default": "./dist/worker.js"
@@ -29,6 +26,9 @@
     "dist",
     "README.md"
   ],
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "build": "rm -rf dist && tsc -p tsconfig.build.json",
     "test": "vitest run",
