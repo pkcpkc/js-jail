@@ -1,0 +1,42 @@
+{
+  "name": "@js-jail/wasm",
+  "version": "0.1.0",
+  "license": "MIT",
+  "author": "Paul Hackenberger",
+  "type": "module",
+  "description": "Run JavaScript you do not trust in QuickJS compiled to WebAssembly: in Node, in a browser page, or in a Web Worker that is terminated when a script runs over its time. JSON in and out.",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "publishConfig": {
+      "access": "public"
+    },
+    "./worker": {
+      "types": "./dist/worker.d.ts",
+      "default": "./dist/worker.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "imports": {
+    "#variant": {
+      "browser": "@jitl/quickjs-singlefile-browser-release-sync",
+      "default": "@jitl/quickjs-singlefile-mjs-release-sync"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "rm -rf dist && tsc -p tsconfig.build.json",
+    "test": "vitest run",
+    "prepare": "npm run build"
+  },
+  "dependencies": {
+    "quickjs-emscripten-core": "0.32.0",
+    "@jitl/quickjs-singlefile-browser-release-sync": "0.32.0",
+    "@jitl/quickjs-singlefile-mjs-release-sync": "0.32.0"
+  }
+}

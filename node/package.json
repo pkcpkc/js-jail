@@ -1,0 +1,30 @@
+{
+  "name": "@js-jail/node",
+  "version": "0.1.0",
+  "license": "MIT",
+  "author": "Paul Hackenberger",
+  "type": "module",
+  "description": "Run JavaScript you do not trust on macOS: a fresh vm context, inside Node with every permission withheld, inside the macOS sandbox. One warm worker, timeouts, memory caps, JSON in and out.",
+  "engines": {
+    "node": ">=25"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "publishConfig": {
+      "access": "public"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "rm -rf dist && tsc -p tsconfig.build.json",
+    "test": "vitest run",
+    "prepare": "npm run build"
+  }
+}

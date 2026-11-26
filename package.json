@@ -1,0 +1,25 @@
+{
+  "name": "js-jail",
+  "version": "0.1.0",
+  "private": true,
+  "license": "MIT",
+  "author": "Paul Hackenberger",
+  "type": "module",
+  "description": "Run JavaScript you do not trust: @js-jail/node (vm, Node permissions, macOS seatbelt) and @js-jail/wasm (QuickJS in WebAssembly, for Node, pages and Web Workers).",
+  "workspaces": [
+    "node",
+    "wasm"
+  ],
+  "scripts": {
+    "build": "npm run build --workspaces",
+    "typecheck": "tsc -p tsconfig.json",
+    "test": "vitest run",
+    "check": "npm run typecheck && npm run build && npm test",
+    "prepare": "npm run build"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "typescript": "^5.9.0",
+    "vitest": "^4.1.12"
+  }
+}
